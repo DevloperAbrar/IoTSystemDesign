@@ -55,8 +55,8 @@ const TeamMembers = () => {
       name: 'Hitansh Ramtani',
       branch: 'Internet of Things(IoT)',
       role: 'Testing & Quality Assurance',
-      image: 'https://res.cloudinary.com/dxtkbq48i/image/upload/v1762881928/hiansh_illvvf.jpg',
-      linkedin: 'https://res.cloudinary.com/dxtkbq48i/image/upload/v1762915233/1710252182502_p2hpkx.jpg', // Replace with actual LinkedIn URL
+      image: 'https://res.cloudinary.com/dxtkbq48i/image/upload/v1762915233/1710252182502_p2hpkx.jpg',
+      linkedin: 'https://www.linkedin.com/in/hitanshramtani04082005?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app', // Replace with actual LinkedIn URL
     },
     {
       name: 'Shubh Gupta',
