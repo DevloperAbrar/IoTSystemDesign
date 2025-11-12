@@ -266,7 +266,7 @@
 
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './Components/Navbar';
 import Home from './components/Home';
 import Controller from './components/Controller';
 import Visualization from './components/Visualization';
