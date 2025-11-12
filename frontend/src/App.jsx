@@ -263,17 +263,17 @@
 
 // export default App;
 
-
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
 import Home from './Components/Home';
 import Controller from './Components/Controller';
 import Visualization from './Components/Visualization';
+import ProtectedRoute from './Components/ProtectedRoute';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('theme');
+    const saved = sessionStorage.getItem('theme');
     if (saved) {
       return saved === 'dark';
     }
@@ -281,7 +281,6 @@ function App() {
   });
 
   useEffect(() => {
-    // Apply to both html and body
     const root = document.documentElement;
     const body = document.body;
     
@@ -289,12 +288,12 @@ function App() {
       root.classList.add('dark');
       root.style.colorScheme = 'dark';
       body.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+      sessionStorage.setItem('theme', 'dark');
     } else {
       root.classList.remove('dark');
       root.style.colorScheme = 'light';
       body.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+      sessionStorage.setItem('theme', 'light');
     }
   }, [darkMode]);
 
@@ -304,17 +303,24 @@ function App() {
 
   return (
     <div 
-      className="min-h-screen transition-colors duration-500"
-      style={{
+      className="min-h-screen transition-colors duration-500" 
+      style={{ 
         background: darkMode 
-          ? 'linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55))'
-          : 'linear-gradient(to bottom right, rgb(249, 250, 251), rgb(243, 244, 246))'
+          ? 'linear-gradient(to bottom right, rgb(17, 24, 39), rgb(31, 41, 55))' 
+          : 'linear-gradient(to bottom right, rgb(249, 250, 251), rgb(243, 244, 246))' 
       }}
     >
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/controller" element={<Controller />} />
+        <Route 
+          path="/controller" 
+          element={
+            <ProtectedRoute darkMode={darkMode}>
+              <Controller />
+            </ProtectedRoute>
+          } 
+        />
         <Route path="/visualization" element={<Visualization />} />
       </Routes>
     </div>
