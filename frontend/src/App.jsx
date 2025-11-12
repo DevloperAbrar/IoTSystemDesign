@@ -267,9 +267,9 @@
 import { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './Components/Navbar';
-import Home from './components/Home';
-import Controller from './components/Controller';
-import Visualization from './components/Visualization';
+import Home from './Components/Home';
+import Controller from './Components/Controller';
+import Visualization from './Components/Visualization';
 
 function App() {
   const [darkMode, setDarkMode] = useState(() => {
